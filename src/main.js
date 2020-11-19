@@ -27,11 +27,12 @@ Vue.use(util)
 
 router.beforeEach((to, from, next) => {
    window.document.title = to.meta.title
-   if (!sessionStorage.access_token && to.path != '/login') {
-     next({path: '/login'});
-   } else {
-    next();
-   }
+  //  if (!sessionStorage.access_token && to.path != '/login') {
+  //    next({path: '/login'});
+  //  } else {
+  //   next();
+  //  }
+  next();
 });
 router.afterEach(transition => {
 

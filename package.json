@@ -1,7 +1,7 @@
 {
-  "name": "szlh",
+  "name": "amz",
   "description": "A Vue.js project",
-  "author": "ruike",
+  "author": "potts",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --env.dev",

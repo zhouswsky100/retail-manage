@@ -96,7 +96,7 @@
               :default-active="$route.path" class="menu" @open="handleOpen" @close="handleClose"
               :collapse="isCollapse">
             <template v-for="(menu_v,menu_k) in menu">
-              <el-submenu v-if="menu_v.childrens.length>0 && menu_v.name!='信件管理'" :index="menu_k"   :key="menu_k">
+              <el-submenu :index="menu_k"   :key="menu_k">
                   <template  slot="title">
                     <i :class="menu_v.icon"></i>
                     <span slot="title">{{ menu_v.name }}</span>

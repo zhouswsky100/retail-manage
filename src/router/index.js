@@ -20,16 +20,18 @@ let RouteList = [
         },
         component: resolve => require(['~/views/Home/Index.vue'], resolve),
       },
-      {
-        path: '/font_awesome',
-        name: 'FontAwesome',
-        meta: {
-          title: 'FontAwesome 图标',
-          keepAlive: false
-        },
-        component: resolve => require(['~/views/Icon/FontAwesome.vue'], resolve),
-      },
+
+      
     ]
+  },
+  {
+    path: '/alliance_marketing',
+    name: 'AllianceMarketing',
+    meta: {
+      title: 'alliance_marketing',
+      keepAlive: false
+    },
+    component: resolve => require(['~/views/AllianceMarketing/Index.vue'], resolve),
   },
   {
     path: '/login',

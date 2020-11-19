@@ -16,7 +16,9 @@
 .hqk-page-bottom {
   padding-bottom: 3em;
 }
-
+.c91{
+  color: #91A0A8;
+}
 .fa {
   color: #333;
 }
@@ -78,10 +80,6 @@ ul li {
   padding-left: 10px;
 }
 
-.g-pl-15 {
-  padding-left: 15px;
-}
-
 .g-ml-20 {
   margin-left: 20px;
 }
@@ -97,7 +95,9 @@ ul li {
 .g-pt-10 {
   padding-top: 10px;
 }
-
+.g-pl-15{
+  padding-left: 15px;
+}
 .g-pt-20 {
   padding-top: 20px;
 }

@@ -4,20 +4,20 @@ let menu = {};
  * 首页
  * @type {{name: string, path: string, icon: string}}
  */
-let userMenu = JSON.parse(sessionStorage.permission_list)
+// let userMenu = JSON.parse(sessionStorage.permission_list)
 
-for(let i =0;i<userMenu.length;i++){
-    menu[userMenu[i].name] = userMenu[i]
-    if(userMenu[i].childrens.length>0){
-       menu[userMenu[i].name]['children'] =  userMenu[i].childrens
-    }
-}
+// for(let i =0;i<userMenu.length;i++){
+//     menu[userMenu[i].name] = userMenu[i]
+//     if(userMenu[i].childrens.length>0){
+//        menu[userMenu[i].name]['children'] =  userMenu[i].childrens
+//     }
+// }
 
-// menu.home = {
-//   name: '首页',
-//   path: '/',
-//   icon: 'fa fa-tachometer',
-// };
+menu.home = {
+  name: '首页',
+  path: '/',
+  icon: 'fa fa-tachometer',
+};
 
 
 /**
