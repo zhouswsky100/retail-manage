@@ -198,87 +198,87 @@
         <div  v-show="isActive=='1'">
             <div class="box1">
                 <p class="title">BLOG</p>
-                <p class="title2">Find out more details about how to use the sourcinbox service.</p>
+                <!-- <p class="title2">Find out more details about how to use the sourcinbox service.</p>
                 <div>
                     <input class="sinp"  v-model="search" placeholder="Looking for something…" >
                     <div style="position: relative; top: -42px;left: 540px;width: 44px; height: 44px;"  @click="getList()" class="h-dc"> 
                         <img src='../../assets/imgs/more.png' style="width:80%">
                     </div>
-                </div>
-                <div class="list">
+                </div> -->
+                <div class="list" style="margin-top:50px">
                     <div class="item2" style="margin-left: 100px;">
                         <img src='../../assets/imgs/t1.png' style="width:70%">
                     <div class="g-pl-15" style="width: 77%;"> 
                             <p class="c91 g-pt-10"><span>By：Miva</span>&nbsp;&nbsp;<span>22/07/2020</span></p>
-                            <p class="itxt">5 Essential Things You Need to Know Before Starting Your Online Business</p>
+                            <p class="itxt">The coronavirus pandemic has impacted the world on an unprecedented scale. With social distancing limiting the way people can shop, online buying and selling (known more commonly as ecommerce) has seen a sudden spike in activity. </p>
                             <p class="c91 g-pt-10">Launching an ecommerce business requires careful research···</p>
                     </div>
                     </div>
                     <div class="item2" style="    margin-left: -90px;">
                         <img src='../../assets/imgs/t2.png' style="width:70%">
                     <div class="g-pl-15"  style="width: 77%;"> 
-                            <p class="c91 g-pt-10"><span>By：Miva</span>&nbsp;&nbsp;<span>22/07/2020</span></p>
-                            <p class="itxt">5 Essential Things You Need to Know Before Starting Your Online Business</p>
+                            <p class="c91 g-pt-10"><span>By：Ariel</span>&nbsp;&nbsp;<span>15/04/2020</span></p>
+                            <p class="itxt">With US retail ecommerce sales projected to top $709 billion in 2020, now is the time to refine your marketing game plan to maximize holiday revenue.</p>
                             <p class="c91 g-pt-10">Launching an ecommerce business requires careful research···</p>
                     </div>
                     </div>
                     <div class="item2" style="    margin-left: -90px;">
                         <img src='../../assets/imgs/t3.png' style="width:70%">
                     <div class="g-pl-15"  style="width: 77%;"> 
-                            <p class="c91 g-pt-10"><span>By：Miva</span>&nbsp;&nbsp;<span>22/07/2020</span></p>
-                            <p class="itxt">5 Essential Things You Need to Know Before Starting Your Online Business</p>
+                            <p class="c91 g-pt-10"><span>By：Abby</span>&nbsp;&nbsp;<span>13/03/2020</span></p>
+                            <p class="itxt">To succeed in ecommerce, you need three things: in-demand products to sell, the skills to market them, and the drive to succeed.</p>
                             <p class="c91 g-pt-10">Launching an ecommerce business requires careful research···</p>
                     </div>
                     </div>
                 </div>
                 <div class="list">
                     <div class="item2" style="margin-left: 100px;">
-                        <img src='../../assets/imgs/t1.png' style="width:70%">
+                        <img src='../../assets/imgs/t4.png' style="width:70%">
                     <div class="g-pl-15" style="width: 77%;"> 
-                            <p class="c91 g-pt-10"><span>By：Miva</span>&nbsp;&nbsp;<span>22/07/2020</span></p>
-                            <p class="itxt">5 Essential Things You Need to Know Before Starting Your Online Business</p>
+                            <p class="c91 g-pt-10"><span>By：Ann</span>&nbsp;&nbsp;<span>22/09/2020</span></p>
+                            <p class="itxt">When selling trending items in health and beauty, focus on visual platforms like Instagram and YouTube. You could partner up with influencers in the space and run Instagram ads to make sales quickly. A more sustainable option is to create your own Instagram profile and publish content around your face peels and masks. </p>
+                            <p class="c91 g-pt-10">Launching an ecommerce business requires careful research···</p>
+                    </div>
+                    </div>
+                    <div class="item2" style="margin-left: -90px;">
+                        <img src='../../assets/imgs/t5.png' style="width:70%">
+                    <div class="g-pl-15"  style="width: 77%;"> 
+                            <p class="c91 g-pt-10"><span>By：Miva</span>&nbsp;&nbsp;<span>12/09/2020</span></p>
+                            <p class="itxt">If you want to turn your nail polish into a bestseller, market this trending beauty product on Instagram and Pinterest. Similar to peel-off face masks, above, you can find influencers to work with and run different social ads to different customer groups to drive sales. </p>
                             <p class="c91 g-pt-10">Launching an ecommerce business requires careful research···</p>
                     </div>
                     </div>
                     <div class="item2" style="    margin-left: -90px;">
-                        <img src='../../assets/imgs/t2.png' style="width:70%">
+                        <img src='../../assets/imgs/t6.png' style="width:70%">
                     <div class="g-pl-15"  style="width: 77%;"> 
-                            <p class="c91 g-pt-10"><span>By：Miva</span>&nbsp;&nbsp;<span>22/07/2020</span></p>
-                            <p class="itxt">5 Essential Things You Need to Know Before Starting Your Online Business</p>
-                            <p class="c91 g-pt-10">Launching an ecommerce business requires careful research···</p>
-                    </div>
-                    </div>
-                    <div class="item2" style="    margin-left: -90px;">
-                        <img src='../../assets/imgs/t3.png' style="width:70%">
-                    <div class="g-pl-15"  style="width: 77%;"> 
-                            <p class="c91 g-pt-10"><span>By：Miva</span>&nbsp;&nbsp;<span>22/07/2020</span></p>
-                            <p class="itxt">5 Essential Things You Need to Know Before Starting Your Online Business</p>
+                            <p class="c91 g-pt-10"><span>By：Taber</span>&nbsp;&nbsp;<span>30/05/2020</span></p>
+                            <p class="itxt">Since at-home exercise may keep trending for a long time, you can also build a brand around fitness and optimize your product pages to rank in Google and bring in organic traffic. You can bundle together resistance bands with other trending products in your store or run Google Shopping and Facebook ads to target high-intent buyers and drive immediate sales. </p>
                             <p class="c91 g-pt-10">Launching an ecommerce business requires careful research···</p>
                     </div>
                     </div>
                 </div>
                 <div class="list">
                     <div class="item2" style="margin-left: 100px;">
-                        <img src='../../assets/imgs/t1.png' style="width:70%">
+                        <img src='../../assets/imgs/t7.png' style="width:70%">
                     <div class="g-pl-15" style="width: 77%;"> 
-                            <p class="c91 g-pt-10"><span>By：Miva</span>&nbsp;&nbsp;<span>22/07/2020</span></p>
-                            <p class="itxt">5 Essential Things You Need to Know Before Starting Your Online Business</p>
+                            <p class="c91 g-pt-10"><span>By：Padro</span>&nbsp;&nbsp;<span>25/07/2020</span></p>
+                            <p class="itxt">To market this bestseller, you’ll want to show these water bottles in use. For example, you could run a contest where customers post pictures of their water bottle out in the wild. Or, create staged photos of the water bottles in an eco-friendly setting and post them on social media and use them in ads. </p>
                             <p class="c91 g-pt-10">Launching an ecommerce business requires careful research···</p>
                     </div>
                     </div>
-                    <div class="item2" style="    margin-left: -90px;">
-                        <img src='../../assets/imgs/t2.png' style="width:70%">
+                    <div class="item2" style=" margin-left: -90px;">
+                        <img src='../../assets/imgs/t8.png' style="width:70%">
                     <div class="g-pl-15"  style="width: 77%;"> 
-                            <p class="c91 g-pt-10"><span>By：Miva</span>&nbsp;&nbsp;<span>22/07/2020</span></p>
-                            <p class="itxt">5 Essential Things You Need to Know Before Starting Your Online Business</p>
+                            <p class="c91 g-pt-10"><span>By：Pacer</span>&nbsp;&nbsp;<span>29/07/2020</span></p>
+                            <p class="itxt">You could use Pinterest to create inspiration boards for different nail experiments and trendy designs for potential shoppers. </p>
                             <p class="c91 g-pt-10">Launching an ecommerce business requires careful research···</p>
                     </div>
                     </div>
-                    <div class="item2" style="    margin-left: -90px;">
-                        <img src='../../assets/imgs/t3.png' style="width:70%">
+                    <div class="item2" style=" margin-left: -90px;">
+                        <img src='../../assets/imgs/t9.png' style="width:70%">
                     <div class="g-pl-15"  style="width: 77%;"> 
-                            <p class="c91 g-pt-10"><span>By：Miva</span>&nbsp;&nbsp;<span>22/07/2020</span></p>
-                            <p class="itxt">5 Essential Things You Need to Know Before Starting Your Online Business</p>
+                            <p class="c91 g-pt-10"><span>By：Macbeth</span>&nbsp;&nbsp;<span>22/11/2020</span></p>
+                            <p class="itxt">Another focus is Google Search. With nearly 33,100 people searching for “kayak accessories” online, you can target ads to high-intent shoppers and send them to your store to purchase.  </p>
                             <p class="c91 g-pt-10">Launching an ecommerce business requires careful research···</p>
                     </div>
                     </div>
@@ -307,23 +307,23 @@
                 <p class="title">FAQ</p>
                  <div  class="faq" style="width:80%;margin: 50px auto;"> 
                    <el-collapse v-model="activeNames" >
-                    <el-collapse-item title="Why we're better tha" name="1">
+                    <el-collapse-item title="Why we're better than AliExpress？" name="1">
                         <div>When ordering through AliExpress, you’re dealing with layers and layers of middlemen, causing very high pricing and leaving you with very little profit margins to work with. Along with that, AliExpress suppliers often take 5-10 days just to process your orders. We deals directly with suppliers and manufacturers to get you the best rates possible, leaving you with plenty of margins to work with, and we can process orders within 1-2 days to ensure the absolute fastest shipping times.</div>
                     </el-collapse-item>
                     <el-collapse-item title="How long do you need to process my orders?" name="2">
-                        <div>When ordering through AliExpress, you’re dealing with layers and layers of middlemen, causing very high pricing and leaving you with very little profit margins to work with. Along with that, AliExpress suppliers often take 5-10 days just to process your orders. We deals directly with suppliers and manufacturers to get you the best rates possible, leaving you with plenty of margins to work with, and we can process orders within 1-2 days to ensure the absolute fastest shipping times.</div>
+                        <div>Whenever we receive your orders:If you don 't have stock in our warehouse, we need at least 3 days to source the products before we send out the products from our warehouse to your customers.If you have stock in our warehouse, we can send out the product in 24 hours.</div>
                     </el-collapse-item>
                     <el-collapse-item title="Can I test products before I sell them on my store?" name="3">
-                         <div>When ordering through AliExpress, you’re dealing with layers and layers of middlemen, causing very high pricing and leaving you with very little profit margins to work with. Along with that, AliExpress suppliers often take 5-10 days just to process your orders. We deals directly with suppliers and manufacturers to get you the best rates possible, leaving you with plenty of margins to work with, and we can process orders within 1-2 days to ensure the absolute fastest shipping times.</div>
+                         <div>Yes! You can get a test product before you begin to sell the product.</div>
                     </el-collapse-item>
                     <el-collapse-item title="Can you do branding and customized package?" name="4">
-                        <div>When ordering through AliExpress, you’re dealing with layers and layers of middlemen, causing very high pricing and leaving you with very little profit margins to work with. Along with that, AliExpress suppliers often take 5-10 days just to process your orders. We deals directly with suppliers and manufacturers to get you the best rates possible, leaving you with plenty of margins to work with, and we can process orders within 1-2 days to ensure the absolute fastest shipping times.</div>
+                        <div>Yes, we can. But there's MOQ required to do branding and customized package, and also we will charge extra customization service fee. Please contact your client manager for more details.</div>
                     </el-collapse-item>
-                     <el-collapse-item title="Which courier do you?" name="5">
-                        <div>When ordering through AliExpress, you’re dealing with layers and layers of middlemen, causing very high pricing and leaving you with very little profit margins to work with. Along with that, AliExpress suppliers often take 5-10 days just to process your orders. We deals directly with suppliers and manufacturers to get you the best rates possible, leaving you with plenty of margins to work with, and we can process orders within 1-2 days to ensure the absolute fastest shipping times.</div>
+                     <el-collapse-item title="Which courier do you work with?" name="5">
+                        <div>Mainly we work with Yunexpress, 4PX, Post NL, Royal Mail,USPS and DHL.</div>
                     </el-collapse-item>
                     <el-collapse-item title="Do I have to buy inventory ahead of time?" name="6">
-                        <div>When ordering through AliExpress, you’re dealing with layers and layers of middlemen, causing very high pricing and leaving you with very little profit margins to work with. Along with that, AliExpress suppliers often take 5-10 days just to process your orders. We deals directly with suppliers and manufacturers to get you the best rates possible, leaving you with plenty of margins to work with, and we can process orders within 1-2 days to ensure the absolute fastest shipping times.</div>
+                        <div>You do not! One of the best parts of the dropshipping model is that you need to hold 0 inventory. Once you make a sale, Ha-Smart handles 100% of the product fulfillment for you.But if you are willing to purchase inventory in advance, we are very happy to provide you with a free warehouse and you can also shorten the shipping time.</div>
                     </el-collapse-item>
                 </el-collapse>
                </div>
@@ -638,6 +638,11 @@
         color: #0D253E;
         line-height: 20px;
         padding-top: 5px;
+         overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;/*超出3行部分显示省略号，去掉该属性 显示全部*/
+        -webkit-box-orient: vertical;
      }
      .item2{
         display: flex;
