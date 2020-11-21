@@ -155,7 +155,7 @@ module.exports = (options = {}) => ({
     }
   },
   devServer: {
-    host: '192.168.1.2',
+    host: '192.168.31.213',
     port: 80,
     open: true,
     proxy: {

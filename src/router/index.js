@@ -7,37 +7,108 @@ let RouteList = [
     path: '/',
     component: resolve => require(['~/views/Layout/App.vue'], resolve),
     meta: {
-      title: '首页',
+      title: 'retail-manage',
       keepAlive: false,
     },
     children: [
       {
         path: '/',
-        name: 'Home',
+        name: 'Dashboard',
         meta: {
-          title: '首页',
+          title: 'Dashboard',
           keepAlive: false
         },
         component: resolve => require(['~/views/Home/Index.vue'], resolve),
       },
-
-      
+      {
+        path: '/marketplace',
+        name: 'marketplace',
+        meta: {
+          title: 'marketplace',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/marketplace/Index.vue'], resolve),
+      },
+      {
+        path: '/sellingproducts',
+        name: 'sellingproducts',
+        meta: {
+          title: 'sellingproducts',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/sellingproducts/Index.vue'], resolve),
+      },
+      {
+        path: '/myproducts',
+        name: 'myproducts',
+        meta: {
+          title: 'myproducts',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/myproducts/Index.vue'], resolve),
+      },
+      {
+        path: '/orders',
+        name: 'orders',
+        meta: {
+          title: 'Regular orders',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/orders/Index.vue'], resolve),
+      },
+      {
+        path: '/aftersalesorders',
+        name: 'aftersalesorders',
+        meta: {
+          title: 'aftersalesorders',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/aftersalesorders/Index.vue'], resolve),
+      },
+      {
+        path: '/Member',
+        name: 'Member',
+        meta: {
+          title: 'Member',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/Member/Index.vue'], resolve),
+      },
+      {
+        path: '/allmember',
+        name: 'allmember',
+        meta: {
+          title: 'allmember',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/allmember/Index.vue'], resolve),
+      },
+      {
+        path: '/myshop',
+        name: 'myshop',
+        meta: {
+          title: 'myshop',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/myshop/Index.vue'], resolve),
+      },
+      {
+        path: '/accountinformation',
+        name: 'accountinformation',
+        meta: {
+          title: 'accountinformation',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/accountinformation/Index.vue'], resolve),
+      },
     ]
   },
-  {
-    path: '/alliance_marketing',
-    name: 'AllianceMarketing',
-    meta: {
-      title: 'alliance_marketing',
-      keepAlive: false
-    },
-    component: resolve => require(['~/views/AllianceMarketing/Index.vue'], resolve),
-  },
+
   {
     path: '/login',
     name: 'Login',
     meta: {
-      title: 'Ha-Smart',
+      title: 'home',
       keepAlive: false
     },
     components: {
@@ -45,15 +116,6 @@ let RouteList = [
     }
   },
 ]
-RouteList[0].children.push({
-  path: '/build_code',
-  name: 'BuildCode',
-  meta: {
-    title: '构建代码',
-    keepAlive: true
-  },
-  component: resolve => require(['~/views/DevelopmentTool/Build.vue'], resolve),
-});
 
 export default new Router({routes: RouteList})
 

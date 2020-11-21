@@ -1,11 +1,11 @@
 <template>
   <div class="main">
     <div class="header">
-      <div class="logo">
-        <span class="big">{{ $Config.siteName }}</span>
-        <span class="min">
-          <!-- <img width="40" style="margin-top: 5px" src="../../assets/imgs/favicon.ico" alt=""> -->
-        </span>
+      <div class="logo h-dc" @click="gourl()">
+        <span class="big g-fz-18">{{ $Config.siteName }}</span>
+        <!-- <span class="">
+          <img width="40" style="margin-top: 5px" src="../../assets/imgs/logo.png" alt="">
+        </span> -->
       </div>
       <span class="header-btn" @click="hiddenSidebar">
         <i class="el-icon-menu"></i>
@@ -13,22 +13,13 @@
       <div class="right">
         <span class="header-btn" style="padding: 0px 5px;" @click="gohome()">
              <i class="fa fa-home" aria-hidden="true" style="color:#fff;font-size: 15px"></i>
-             <span class="g-fz-12">首页</span>
-        </span>
-        <span class="header-btn" style="padding: 0px 5px;" @click="showMessage()">
-             <i style="font-size: 15px;margin-right: 5px;" class="el-icon-message"></i>
-             <span class="g-fz-12">信件管理</span>
-        </span>
-       
-        <span class="header-btn" style="padding: 0px 5px;">
-             <i class="fa fa-bar-chart" aria-hidden="true" style="color:#fff"></i>
-              <span class="g-fz-12">统计分析</span>
-        </span>
-        <span class="header-btn" @click="screenfullToggle">
+             <span class="g-fz-12">Dashboard</span>
+        </span>   
+        <!-- <span class="header-btn" @click="screenfullToggle">
             <i class="fa fa-arrows-alt" style="color: #fff"></i>
-        </span>
+        </span> -->
 
-        <el-dropdown>
+        <!-- <el-dropdown>
           <span class="header-btn">
                <i class="el-icon-setting"></i>
           </span>
@@ -38,16 +29,16 @@
                 <el-switch
                     @change="saveSwitchTabBarVal"
                     v-model="switchTabBar"
-                    active-text="开启TabBar"
-                    inactive-text="关闭TabBar">
+                    active-text="openTabBar"
+                    inactive-text="closeTabBar">
                 </el-switch>
                 <el-switch
                     @change="saveFixedTabBar"
                     v-if="switchTabBar"
                     v-model="fixedTabBar"
                     style="margin-top: 10px"
-                    active-text="固定在顶部"
-                    inactive-text="随页面滚动">
+                    active-text="intop"
+                    inactive-text="auto">
                 </el-switch>
                 <el-alert
                     v-if="switchTabBar"
@@ -74,14 +65,14 @@
 
             </div>
           </el-dropdown-menu>
-        </el-dropdown>
+        </el-dropdown> -->
         <el-dropdown>
           <span class="header-btn">
               {{name}}<i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item @click.native="$router.push('/personalCenter')"><i style="padding-right: 8px" class="fa fa-cog"></i>个人中心</el-dropdown-item>
-            <el-dropdown-item @click.native="logout"><i style="padding-right: 8px" class="fa fa-key"></i>退出系统</el-dropdown-item>
+            <el-dropdown-item @click.native="$router.push('/personalCenter')"><i style="padding-right: 8px" class="fa fa-cog"></i>Account information</el-dropdown-item>
+            <el-dropdown-item @click.native="logout"><i style="padding-right: 8px" class="fa fa-key"></i>Logout</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -89,39 +80,29 @@
     <div class="app">  
       <div class="aside">
         <div class="menu"  >
-          <el-menu
+           <el-menu
               router
               background-color="#222d32"
               text-color="#fff"
               :default-active="$route.path" class="menu" @open="handleOpen" @close="handleClose"
               :collapse="isCollapse">
             <template v-for="(menu_v,menu_k) in menu">
-              <el-submenu :index="menu_k"   :key="menu_k">
-                  <template  slot="title">
-                    <i :class="menu_v.icon"></i>
-                    <span slot="title">{{ menu_v.name }}</span>
-                  </template>   
-                  <el-submenu  v-if="menuChildren_v.childrens.length>0" 
-                                v-for="(menuChildren_v,menuChildren_k) in menu_v.children"
-                                :key="menuChildren_k"
-                                :index="menuChildren_k + '' ">
-                    <i class="is-children fa fa-circle-o"></i>
-                    <span slot="title">{{ menuChildren_v.name}}</span>
-                    <div v-if=" menuChildren_v.childrens.length>0">
-                        <el-menu-item   v-for="(item3,index3) in menuChildren_v.childrens"
-                            :key="index3"
-                          :index="item3.path  "
-                          >
-                          <template slot="title">{{ item3.name}}</template>
-                        </el-menu-item >
-                    </div>
-                  </el-submenu>
-                  <el-menu-item v-else :index="menuChildren_v.path">
-                    <i :class="menuChildren_v.icon"></i>
-                    <span slot="title">{{ menuChildren_v.name }}</span>
-                  </el-menu-item>
+              <el-submenu v-if="menu_v.children" :index="menu_k">
+                <template slot="title">
+                  <i :class="menu_v.icon"></i>
+                  <span slot="title">{{ menu_v.name }}</span>
+                </template>
+                <el-menu-item v-for="(menuChildren_v,menuChildren_k) in menu_v.children"
+                              :key="menuChildren_k"
+                              :index="menuChildren_v.path">
+                  <!-- <i class="is-children fa fa-circle-o"></i> -->
+                  <span slot="title">{{ menuChildren_v.name }}</span>
+                </el-menu-item>
               </el-submenu>
-            
+              <el-menu-item v-else :index="menu_v.path">
+                <i :class="menu_v.icon"></i>
+                <span slot="title">{{ menu_v.name }}</span>
+              </el-menu-item>
             </template>
           </el-menu>
         </div>
@@ -174,11 +155,7 @@
         else navBar.style.width = 'calc(100% - 230px)';
 
       },
-      showMessage(){
-     
-        this.$router.push({path: '/msg_todo'});
-      },
-      gohome(){
+      gourl(){
         this.$router.push({path: '/'});
       },
       ToggleGrayMode(){
@@ -224,7 +201,6 @@
       },
       logout() {
         sessionStorage.removeItem(this.$Config.tokenKey);
-        window.location.reload()
         this.$router.push({path: '/login'});
       },
       handleOpen(key, keyPath) {

@@ -1,5 +1,5 @@
 export default {
-  siteName:'龙华区卫健局应急办信访',
+  siteName:'Ha-Smart',
   minSiteMame:'EUI',
   tokenKey: 'access_token',//存在sessionStorage里面的tokenKey
   postStatus:{
