@@ -113,16 +113,16 @@
           </div>
         </div>
       </div>
-      <div class="app-body">
+      <!-- <div class="app-body">
         <NavBar id="nav-bar" v-if="switchTabBar" :style="fixedTabBar && switchTabBar?'position: fixed;top: 0;':''"></NavBar>
         <div v-else style="margin-top: 50px;"></div>
         <div id="mainContainer" :style="fixedTabBar && switchTabBar?'margin-top: 88px;':''" class="main-container">
-          <!--<transition name="fade">-->
+          <transition name="fade">
             <router-view></router-view>
-          <!--</transition>-->
+          </transition>
         </div>
         <EuiFooter></EuiFooter>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -211,7 +211,7 @@
       }
     },
     mounted: function () {
-      this.name =sessionStorage.name
+      this.name = sessionStorage.username
       this.switchTabBar = localStorage.getItem('switchTabBar') ? true : false;
       this.fixedTabBar = localStorage.getItem('fixedTabBar') ? true : false;
       if(this.switchTabBar)document.getElementById('mainContainer').style.minHeight = 'calc(100vh - 139px)';
@@ -229,7 +229,9 @@
   }
 </script>
 <style lang="less">
-
+  .menu /deep/ .el-menu{
+    overflow-x: hidden;
+  }
   .sidebar-hidden {
     .header {
       .logo {
@@ -250,6 +252,7 @@
           transform: rotate(180deg);
         }
       }
+  
     }
     .main {
       .app-body {

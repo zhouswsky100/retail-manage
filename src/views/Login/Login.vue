@@ -1,8 +1,7 @@
 <template>
     <div class="home-index">
         <div class="box">
-            <div class="nav-item">
-                <template v-if="token!=''">
+            <div class="nav-item"  v-if="token==undefined">
                     <div>
                         <el-button type="text" v-for="(item,index) in nameoptions" :key="index" :class="{active:index==isActive}" @click="checkedItem(index)">
                             {{item.name}}
@@ -13,17 +12,16 @@
                     </div>
                     <div @click="()=>{ dialogType='reg';showDialog=true }"  style="margin-left: -10px;" class="g-ml-20 h-dc ">
                         <img src="../../assets/imgs/reg.png" alt="" style="width: 70%;">
-                    </div>
-                </template>
-                <template v-else>
-                    <span>{{ userName }}</span>
-                    <el-button type="text" style="margin-left:10px;" @click="goDashboard">
-                        Dashboard
-                    </el-button>
-                    <el-button type="text" style="margin-left:10px;" @click="loginOut">
-                        Logout
-                    </el-button>
-                </template>
+                    </div> 
+            </div>
+            <div  v-if="token!=undefined" style="display: inline-block;position: relative;  left: 430px;">
+                <span>{{ userName }}</span>
+                <el-button type="text" style="margin-left:10px;" @click="goDashboard">
+                    Dashboard
+                </el-button>
+                <el-button type="text" style="margin-left:10px;" @click="loginOut">
+                    Logout
+                </el-button>
             </div>
         </div>
         <swiper ref="mySwiper" :options="swiperOptions">
@@ -525,7 +523,7 @@
         }
     },
     created() {
-        this.userName = localStorage.getItem('username');
+        this.userName = sessionStorage.username
         this.token = sessionStorage.access_token 
         if (this.$route.query.login) {
             this.showDialog = true;
@@ -539,6 +537,9 @@
           let routerJump = this.$router.resolve('/alliance_marketing')
           window.open(routerJump.href, '_blank');
         //   this.$router.push()
+      },
+      goDashboard(){
+          this.$router.push({path: '/'});
       },
       getList(){
 
@@ -558,8 +559,8 @@
                                 message: 'Login success',
                                 type: 'success'
                             });
-                            sessionStorage.access_token = res.token
-                            sessionStorage.token_type = res.retailerInfo.userName
+                            sessionStorage.access_token = res.data.token
+                            sessionStorage.username = res.data.retailerInfo.userName
                             this.$router.push({path: '/'});
                         }
                     }else{
@@ -603,8 +604,9 @@
                     type: 'warning'
                 })
                 .then(() => {
-                    localStorage.clear();
-                    this.userName = '';
+                    sessionStorage.clear();
+                    this.userName = sessionStorage.username
+                    this.token = sessionStorage.access_token 
                     this.$message.success('logout success');
                 })
                 .catch(() => {});
