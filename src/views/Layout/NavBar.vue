@@ -108,8 +108,8 @@
       }
     }
     .active {
-      border: 1px solid #3d8dbc;
-      background: #3d8dbc;
+      border: 1px solid #916BFF;
+      background: #916BFF;
       color: #fff;
       .point {
         display: inline-block;

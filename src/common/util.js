@@ -9,9 +9,16 @@ export default{
       let webServiceUrls = {
         staticUrl: config.staticUrl,
         webSoket:config.webSoket,
-        login:'/api/retailer-api/login', //登录
-        reg : '/api/retailer-api/retailers/reg',//注册
-        forgetPassword:'/api/retailer-api/retailers/forgetPassword'//找回密码
+        login:'/retailer-api/login', //登录
+        reg : '/retailer-api/retailers/reg',//注册
+        forgetPassword:'/retailer-api/retailers/forgetPassword',//找回密码
+        myWorkbench: `/retailer-api/retailers/myWorkbench`,//图标
+        prodReport: `/retailer-api/retailers/prodReport`,//图标2
+        orderReport: `/retailer-api/retailers/orderReport`//图标3
+
+       
+
+       
       
       }
       if(process.env.NODE_ENV === 'production'){

@@ -35,7 +35,9 @@
 .navbar a {
   color: #333;
 }
-
+.el-button--primary{
+  background-color: #916BFF
+}
 .ios .navbar a.icon-only {
   width: 50px;
 }
@@ -283,7 +285,11 @@ ul li {
   justify-content: center;
   align-items: center;
 }
-
+.g-f-s{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
 .a7a6 {
   color: #A7A6C2;
 }

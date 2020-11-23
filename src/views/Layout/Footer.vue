@@ -3,7 +3,7 @@
     <div class="version">
       <b>Version</b> {{ $Config.version }}
     </div>
-    <strong>Copyright © 2020-2030 <a href="javascript:;">{{ $Config.siteName }}</a>.</strong> 
+    <strong>© COPYRIGHT 2019-2020 Shanghai Ha-Smart Technology Co., Ltd ALL RIGHTS RESERVED. <a href="javascript:;">{{ $Config.siteName }}</a>.</strong> 
   </div>
 </template>
 

@@ -155,13 +155,13 @@ module.exports = (options = {}) => ({
     }
   },
   devServer: {
-    host: '192.168.31.213',
-    port: 80,
+    host: '127.0.0.1',
+    port: 9000,
     open: true,
     proxy: {
-      '/api/': {
+      '/retailer-api/': {
         target: defaultSettings.porxyUrl,
-        pathRewrite: {'^/api':''},
+        pathRewrite: {'^/retailer-api':'retailer-api'},
         changeOrigin: true,     // target是域名的话，需要这个参数，
         secure: false,          // 设置支持https协议的代理
       },

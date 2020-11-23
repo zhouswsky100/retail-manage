@@ -5,7 +5,7 @@ export default {
     {
         // 参数 请求路径  需要登录 类型 id
       Vue.prototype.getHttpPost= function(param,url,needToken,type,file){  
-        let token =  needToken == true?   sessionStorage.token_type +' '+sessionStorage.access_token : ''
+        let token =  needToken == true?  sessionStorage.access_token : ''
         let ContentType ='application/x-www-form-urlencoded'
         if(file=='file'){
            ContentType ='multipart/form-data'
@@ -20,7 +20,8 @@ export default {
                  // data:param
                   headers: { 
                       'Content-Type':ContentType  ,
-                      'Authorization':token
+                      'Authorization':token,
+                      'token':token
                   }
                 })
                 .then((res) => {
@@ -40,7 +41,8 @@ export default {
                   method: type,
                   data :param,
                   headers: { 
-                    'Authorization':token
+                    'Authorization':token,
+                    'token':token
                   }
                 })
                 .then((res) => {
@@ -55,7 +57,7 @@ export default {
         }
       };
       Vue.prototype.getHttpGet= function(param,url,needToken,type){  
-        let token =  needToken == true?   sessionStorage.token_type +' '+sessionStorage.access_token : ''
+        let token =  needToken == true?  sessionStorage.access_token : ''
           return new Promise((resolve, reject) => {
             axios({
                   url: this.$rkUtil.getWebServiceUrl(url),
@@ -63,7 +65,8 @@ export default {
                   params: param,
                   headers: { 
                       'Content-Type': 'application/x-www-form-urlencoded' ,
-                      'Authorization':token
+                      'Authorization':token,
+                      'token':token
                   }
                 })
                 .then((res) => {
@@ -75,7 +78,7 @@ export default {
          });
       };
       Vue.prototype.getHttpDown = function(param,url,needToken,type){  
-        let token =  needToken == true?   sessionStorage.token_type +' '+sessionStorage.access_token : ''
+        let token =  needToken == true?  sessionStorage.access_token : ''
           return new Promise((resolve, reject) => {
             axios({
                   url: this.$rkUtil.getWebServiceUrl(url),
@@ -85,6 +88,7 @@ export default {
                   headers: { 
                     'Content-Type': 'application/json; charset=utf-8',
                     'Authorization':token,
+                    'token':token,
                      Accept: 'application/json',
                      withCredentials: true,
                   }

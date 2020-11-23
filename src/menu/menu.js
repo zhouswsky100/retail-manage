@@ -18,33 +18,58 @@ menu.home = {
   path: '/',
   icon: 'fa fa-tachometer',
 };
-
+menu.sourcing = {
+  name: 'Sourcing',
+  path: '/sourcing',
+  icon: 'fa fa-shopping-bag',
+};
 
 /**
  * Manager products
  * @type {{name: string, icon: string, children: {}}}
  */
-  menu.font_icon = {
+  menu.ManagerProducts = {
     name: 'Manager products',
     icon: 'fa fa-th',
     children: {}
   };
-  let icon = menu.font_icon.children;
+  let ManagerProducts = menu.ManagerProducts.children;
 
-  icon.Marketplace = {
+  ManagerProducts.Marketplace = {
     name: 'Marketplace',
     path: '/marketplace',
 
   };
-  icon.Sellingproducts = {
-    name: 'Selling products',
+  ManagerProducts.Sellingproducts = {
+    name: 'Import List',
     path: '/sellingproducts',
   };
 
-  icon.Myproducts = {
+  ManagerProducts.Myproducts = {
     name: 'My products',
     path: '/myproducts',
   };
+
+/**
+ * Manage Inventory
+ * @type {{name: string, icon: string, children: {}}}
+ */
+menu.ManagerInventory = {
+  name: 'Manage Inventory',
+  icon: 'fa  fa-list-alt',
+  children: {}
+};
+let ManagerInventory = menu.ManagerInventory.children;
+
+ManagerInventory.PurchaseList = {
+  name: 'Purchase List',
+  path: '/purchaseList',
+
+};
+ManagerInventory.MyInventory = {
+  name: 'My Inventory',
+  path: '/myInventory',
+};
 
   
 /**
@@ -102,7 +127,7 @@ Account.shop = {
   path: '/myshop',
 };
 Account.Regular = {
-  name: 'Account information',
+  name: 'Account Info',
   path: '/accountinformation',
 
 };

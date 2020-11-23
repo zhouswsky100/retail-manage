@@ -82,7 +82,7 @@
         <div class="menu"  >
            <el-menu
               router
-              background-color="#222d32"
+              background-color="#0A1F44"
               text-color="#fff"
               :default-active="$route.path" class="menu" @open="handleOpen" @close="handleClose"
               :collapse="isCollapse">
@@ -113,7 +113,7 @@
           </div>
         </div>
       </div>
-      <!-- <div class="app-body">
+      <div class="app-body">
         <NavBar id="nav-bar" v-if="switchTabBar" :style="fixedTabBar && switchTabBar?'position: fixed;top: 0;':''"></NavBar>
         <div v-else style="margin-top: 50px;"></div>
         <div id="mainContainer" :style="fixedTabBar && switchTabBar?'margin-top: 88px;':''" class="main-container">
@@ -122,7 +122,7 @@
           </transition>
         </div>
         <EuiFooter></EuiFooter>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
@@ -137,7 +137,7 @@
     data() { 
       return {
         fixedTabBar:true,
-        switchTabBar: true,
+        switchTabBar: false,
         siteName: this.$Config.siteName,
         isCollapse: false,
         menu: Menu,
@@ -232,10 +232,22 @@
   .menu /deep/ .el-menu{
     overflow-x: hidden;
   }
+  .menu /deep/ .el-menu-item:hover{
+    background: #0E2D65 !important; 
+  }
+  .menu /deep/ .el-submenu:hover{
+    background: #0E2D65 !important; 
+  }
+  .menu  /deep/.el-submenu__title:hover{
+   background-color:#0E2D65 !important;
+  }
+  .el-menu-item.is-active{
+   color:#Fff
+  }
   .sidebar-hidden {
     .header {
       .logo {
-        background: #222d32;
+        background: #0A1F44;
         .big {
           display: none;
         }
@@ -306,7 +318,7 @@
         position: relative;
         width: 100%;
         height: 50px;
-        background-color: #367fa9;
+        background-color: #0A1F44;
         color: #fff;
         cursor: pointer;
         .icon-left{
@@ -339,7 +351,7 @@
     position: fixed;
     display: flex;
     height: 50px;
-    background-color: #3c8dbc;
+    background-color: #0A1F44;
     z-index: 10;
     .logo {
       .min {
@@ -350,7 +362,7 @@
       text-align: center;
       line-height: 50px;
       color: #fff;
-      background-color: #367fa9;
+      background-color: #0A1F44 ;
       -webkit-transition: width 0.35s;
       transition: all 0.3s ease-in-out;
     }
@@ -381,7 +393,7 @@
       padding: 0 14px;
       color: #fff;
       &:hover {
-        background-color: #367fa9
+        background-color: #723fe3
       }
     }
 
@@ -398,4 +410,5 @@
     padding:10px 0;
     border-bottom: 1px solid #eee;
   }
+ 
 </style>

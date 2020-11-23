@@ -101,6 +101,33 @@ let RouteList = [
         },
         component: resolve => require(['~/views/accountinformation/Index.vue'], resolve),
       },
+      {
+        path: '/sourcing',
+        name: 'sourcing',
+        meta: {
+          title: 'sourcing',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/sourcing/Index.vue'], resolve),
+      },  
+      {
+        path: '/purchaseList',
+        name: 'purchaseList',
+        meta: {
+          title: 'purchaseList',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/purchaseList/Index.vue'], resolve),
+      },
+      {
+        path: '/myInventory',
+        name: 'myInventory',
+        meta: {
+          title: 'myInventory',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/myInventory/Index.vue'], resolve),
+      },
     ]
   },
 
@@ -113,6 +140,17 @@ let RouteList = [
     },
     components: {
       blank: resolve => require(['~/views/Login/Login.vue'], resolve),
+    }
+  },
+  {
+    path: '/AllianceMarketing',
+    name: 'AllianceMarketing',
+    meta: {
+      title: 'AllianceMarketing',
+      keepAlive: false
+    },
+    components: {
+      blank: resolve => require(['~/views/AllianceMarketing/Index.vue'], resolve),
     }
   },
 ]

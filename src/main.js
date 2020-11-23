@@ -1,5 +1,6 @@
 
 import ElementUI from 'element-ui'
+import locale from 'element-ui/lib/locale/lang/en'
 import './theme/index.css'
 import Vue from 'vue'
 import App from './App.vue'
@@ -16,14 +17,18 @@ import util from './common/util.js'
 import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
+import moment from 'moment';
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+// 全局注册
+Vue.prototype.$moment = moment;
 Vue.use(VueAwesomeSwiper)
-Vue.use(ElementUI)
+Vue.use(ElementUI, { locale })
 Vue.prototype.$Api = Api
 Vue.prototype.$Config = Config
 Vue.prototype.$Func = Function
 Vue.use(rkcommon)
 Vue.use(util)
-
 
 router.beforeEach((to, from, next) => {
    window.document.title = to.meta.title
