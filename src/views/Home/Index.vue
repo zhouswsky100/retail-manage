@@ -195,28 +195,31 @@
        <span>System Notification</span>
      </div>
       <el-table
-      :data="tableData"
+      :data="tableData1.slice((this.page - 1) * this.size, (this.page - 1) * this.size + this.size)"
       style="width: 100%">
       <el-table-column
-        prop="date"
+        prop="type"
         label="Type"
        >
       </el-table-column>
       <el-table-column
-        prop="address"
-        label="Title">
+        prop="content"
+        label="content"
+        width="380"
+        :formatter="formatter">
       </el-table-column>
        <el-table-column
-        prop="PlaceOrder"
-        label="Date">
+        label="Date"
+        prop="createTime"
+        :formatter="formatter2">
       </el-table-column>
       </el-table>
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
-        :current-page="currentPage"
+        :current-page="page"
         :page-sizes="[5,10,20,100]"
-        :page-size="100"
+        :page-size="size"
         layout="total, sizes, prev, pager, next, jumper"
         :total="total">
       </el-pagination>
@@ -236,7 +239,9 @@ import moment from 'moment';
         currentPage:1,
         tableData1:[],
         total1:0,
-        currentPage1:1,
+        createTime:'',
+        page:1,
+        size:5,
         noticeOverview:'',
         code:'',
         orderStatusMap:[],
@@ -273,7 +278,21 @@ import moment from 'moment';
         getMyWorkbenchIfo(){
           this.getHttpGet({},'myWorkbench',true,'get').then(res => {
             if(res.status==200){
-                this.noticeOverview = res.data
+                let temp = []
+                res.data.newProdPage.records.forEach(item => {
+                   item.type = 'new'
+                   temp.push(item)
+                });
+                res.data.sendOrderPage.records.forEach(item => {
+                   item.type = 'send'
+                   temp.push(item)
+                });
+                res.data.toResolveOrder.records.forEach(item => {
+                   item.type = 'resolve'
+                   temp.push(item)
+                });
+                this.tableData1 = temp
+                this.total = temp.length
               }else{
                 this.$message.error(res.error);
               }
@@ -282,10 +301,10 @@ import moment from 'moment';
             })
         },
         handleSizeChange(val) {
-           console.log(`每页 ${val} 条`);
+           this.size = val;
         },
         handleCurrentChange(val) {
-          console.log(`当前页: ${val}`);
+          this.page = val;
         },
         loadProductReport(){
           let params={
@@ -391,9 +410,38 @@ import moment from 'moment';
             },error=>{
                 this.$message.error('There is a problem with the network');
             })
+        },
+        formatter(row){
+          return `The platform added ${ row.prodName } products on ${ moment(row.createTime).format('YYYY-MM-DD') },`
+
+        },
+        formatter2(row){
+          return moment(row.createTime).format('YYYY-MM-DD')
         }
     },
-    
+    filters:{
+      formatProNotice(data){
+     
+
+        return `The platform added ${ data.prodName } products on ${ moment(data.createTime).format('YYYY-MM-DD') },`
+
+      },
+      formatOrderNotice(data){
+
+        return `Order number ${ data.orderNo } was shipped on ${ moment(data.updateTime).format('YYYY-MM-DD') },`
+
+      },
+      formatAfterSaleNotice(data){
+
+        return `The after-sales order number ${ data.orderNo } was approved on ${ moment(data.updateTime).format('YYYY-MM-DD') },`
+
+      },
+      formatToResolveNotice(data){
+
+        return `${moment(data.createTime).format('YYYY-MM-DD')} Received order ${ data.orderNo },`
+
+      }
+    },
     created(){
       this.getMyWorkbenchIfo();
       this.loadProductReport();

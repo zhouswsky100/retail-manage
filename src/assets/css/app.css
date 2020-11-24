@@ -35,8 +35,15 @@
 .navbar a {
   color: #333;
 }
+.el-loading-spinner .el-loading-text {
+  color: #916BFF;
+  margin: 3px 0;
+  font-size: 14px
+}
 .el-button--primary{
-  background-color: #916BFF
+  background-color: #916BFF;
+  border-color: #916BFF;
+
 }
 .ios .navbar a.icon-only {
   width: 50px;

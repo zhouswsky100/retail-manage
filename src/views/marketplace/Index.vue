@@ -27,7 +27,11 @@
                 </div>
             </div>
           
-        <div class="productList" v-show="productList.length>0">
+        <div class="productList" v-show="productList.length>0" 
+             v-loading="loading" 
+             element-loading-text="loading"   
+             element-loading-spinner="el-icon-loading"
+        >
             <div class="item" v-for="(item,index) in productList" :key="index">
                 <div> <img :src="item.spuMainImg"></div>
                 <p class="money">  ${{ item.skuList ? item.skuList[0].settlement : item.settlement }}</p>
@@ -41,7 +45,7 @@
                 </div>
             </div>
         </div>
-        <div class="g-f-c" style="height:200px" v-show="productList.length==0">
+        <div class="g-f-c" style="height:200px" v-show="productList.length==0" v-loading="loading"  element-loading-text="loading">
                <i class="fa fa-circle-o-notch" aria-hidden="true"></i> 
                <p class="nodata g-pl-10 ">No matches</p>
         </div>
@@ -69,6 +73,7 @@ data(){
     return{
       searchKey:'',
       input:'',
+      loading:true,
       radio:{},
       brandId:'',
       showDialog:false,
@@ -141,6 +146,7 @@ data(){
                 pageSize:this.pagging.pageSize,
             }
             this.getHttpGet(params,'querySaleProducts',true,'get').then(res => {
+                this.loading = false
             if(res.status==200){
                 this.productList = res.data.records;
                 this.pagging.total = res.data.total;
@@ -172,6 +178,21 @@ data(){
         margin: 10px;
         box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
     }
+//   .box /deep/  .el-loading-spinner{
+//         background: url(../../assets/imgs/balance.png) no-repeat;
+//         background-size: 48px 48px;
+//         width: 100%;
+//         height: 100%;
+//         position: relative;
+//         top: 50%;
+//         left: 45%;
+//     }
+//    .box /deep/  .el-loading-spinner .circular{
+//         width: 42px;
+//         height: 42px;
+//         animation: loading-rotate 2s linear infinite;
+//         display: none;
+//     }
    .box /deep/ .el-radio-button__orig-radio:checked+.el-radio-button__inner{
         color: #916BFF;;
         background-color: #fff;;
@@ -248,7 +269,7 @@ data(){
             line-height: 20px;
             padding-top: 5px;
             overflow: hidden;
-            min-height: 40px;
+            min-height: 45px;
             font-size: 13px;
             padding-left: 10px;
             text-overflow: ellipsis;
