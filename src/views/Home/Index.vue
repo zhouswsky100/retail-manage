@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="home">
   <div class="box">
       <el-input type="text"  style="width:60%" autosize placeholder="Please enter the Manager Code to get your client manager" v-model="code"></el-input>
       <el-button type="primary" style="margin-left:10px">Submit</el-button>
@@ -272,7 +272,6 @@ import moment from 'moment';
     methods: {
         getMyWorkbenchIfo(){
           this.getHttpGet({},'myWorkbench',true,'get').then(res => {
-            this.loading = false;
             if(res.status==200){
                 this.noticeOverview = res.data
               }else{
@@ -295,7 +294,6 @@ import moment from 'moment';
             endDate:this.productSearchForm.daterange && this.productSearchForm.daterange[1]
           }
           this.getHttpGet(params,'prodReport',true,'get').then(res => {
-            this.loading = false;
             if(res.status==200){
                 this.chartProductData = res.data;
                 let myChart = echarts.init(document.getElementById('echarts'));
@@ -348,7 +346,6 @@ import moment from 'moment';
             endDate: this.orderSearchForm.daterange && this.orderSearchForm.daterange[1]
           }
           this.getHttpGet(params,'orderReport',true,'get').then(res => {
-            this.loading = false;
             if(res.status==200){
                 this.chartOrderData = res.data;
                 let myChart = echarts.init(document.getElementById('echarts2'));
@@ -407,73 +404,75 @@ import moment from 'moment';
     }
   }
 </script>
-<style lang="less">
-.box{
-  padding: 20px;
-  border: 1px solid #e6ebf5;
-  background-color: #fff;
-  border-radius: 8px;
-  margin: 10px;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
-}
-.item{
-  display: flex;
-  margin: 10px;
-  justify-content: space-between;
-}
-.ibg{
-  background: #fff;
-  width: 24%;
-  margin-bottom: 18px;
-  padding: 10px;
-  margin-top: 10px;
-  margin-left: 10px;
-  border-radius: 8px;
-  height: 152px;
-}
-.g-f-s span{
-  padding-left: 10px;
-  color: #666;
-  font-size: 18px;
-}
-.hr{
-    align-items: center;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    padding-bottom: 16px;
-    margin-bottom: 10px;;
-}
-.txt{
-  font-size: 32px;
-  color: #222;
-  font-weight: bold;
-  span{
-    color: #666;
-    margin-right: 50px;
-    font-size: 16px
+<style lang="less" scoped>
+#home{
+  .box{
+    padding: 20px;
+    border: 1px solid #e6ebf5;
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 10px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
   }
-}
-.char{
-    margin-left: 5px;
-}
-.echarts{
-  width:100%;
-  max-width:1000px;
-  margin:auto;
-  height:200px
-}
-.tab{
+  .item{
     display: flex;
+    margin: 10px;
     justify-content: space-between;
-}
-.tab-list{
-  padding: 10px;
-  border: 1px solid #e6ebf5;
-  background-color: #fff;
-  border-radius: 8px;
-  margin: 10px;
-  width: 50%;
-  background: #fff;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  }
+  .ibg{
+    background: #fff;
+    width: 24%;
+    margin-bottom: 18px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 8px;
+    height: 152px;
+  }
+  .g-f-s span{
+    padding-left: 10px;
+    color: #666;
+    font-size: 18px;
+  }
+  .hr{
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      padding-bottom: 16px;
+      margin-bottom: 10px;;
+  }
+  .txt{
+    font-size: 32px;
+    color: #222;
+    font-weight: bold;
+    span{
+      color: #666;
+      margin-right: 50px;
+      font-size: 16px
+    }
+  }
+  .char{
+      margin-left: 5px;
+  }
+  .echarts{
+    width:100%;
+    max-width:1000px;
+    margin:auto;
+    height:200px
+  }
+  .tab{
+      display: flex;
+      justify-content: space-between;
+  }
+  .tab-list{
+    padding: 10px;
+    border: 1px solid #e6ebf5;
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 10px;
+    width: 50%;
+    background: #fff;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  }
 }
 </style>

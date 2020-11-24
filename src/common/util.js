@@ -14,7 +14,13 @@ export default{
         forgetPassword:'/retailer-api/retailers/forgetPassword',//找回密码
         myWorkbench: `/retailer-api/retailers/myWorkbench`,//图标
         prodReport: `/retailer-api/retailers/prodReport`,//图标2
-        orderReport: `/retailer-api/retailers/orderReport`//图标3
+        orderReport: `/retailer-api/retailers/orderReport`,//图标3
+        queryByClassificationId:  `/retailer-api/brands/queryByClassificationId`,//商品列表
+        classificationTree:`/retailer-api/classifications/classificationTree`,//商品类别
+        queryByClassificationId: `/retailer-api/brands/queryByClassificationId`,//获取品牌列表
+        querySaleProducts :'/retailer-api/retailers/querySaleProducts'//商品库的商品
+
+
 
        
 
