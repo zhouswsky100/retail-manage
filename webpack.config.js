@@ -148,7 +148,6 @@ module.exports = (options = {}) => ({
         })
     ]
   },
-  //test
   devtool: "source-map",
   resolve: {
     alias: {
