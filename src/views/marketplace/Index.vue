@@ -1,5 +1,8 @@
 <template>
-<div id="marketplace">
+<div id="marketplace"    
+    v-loading="loadingP" 
+    element-loading-text="add product loading"   
+>
     <div class="box">
             Product category:&nbsp;&nbsp;
             <el-cascader
@@ -7,7 +10,7 @@
                 :props="classificationProps"
                 placeholder="Please select product category"
                 clearable
-                 style="width:160px" 
+                style="width:160px" 
                 @change="handleChange">
             </el-cascader>
             <el-input v-model="input"  style="width:160px" placeholder="Enter Keywords"></el-input>
@@ -39,7 +42,7 @@
                 <div class="button_bottom">
                     <el-button
                         :type="item.retailerProductSpuId ? 'success' : 'primary'"
-                        @click.stop="sealProduct(item.retailerProductSpuId)">
+                        @click.stop="sealProduct(item.retailerProductSpuId,item.id)">
                         {{ item.retailerProductSpuId ? 'View sale' :'Select Sales' }}
                     </el-button>
                 </div>
@@ -73,9 +76,11 @@ data(){
     return{
       searchKey:'',
       input:'',
+      loadingP:false,
       loading:true,
       radio:{},
       brandId:'',
+      productInfo:{},
       showDialog:false,
       sealPriductId:null,  //发布销售的产品
       classificationList:[],  //类别
@@ -93,6 +98,9 @@ data(){
         orderSize:"",
         remark:""
       },
+      imgs:[],
+      spuImgs:'',
+      formData:{},
       count:0
     }
   },
@@ -114,15 +122,65 @@ data(){
                     this.$message.error('There is a problem with the network');
                 })
         },
-        sealProduct(retailerProductSpuId) {
+        sealProduct(retailerProductSpuId,id) {
             if (sessionStorage.access_token ==undefined) {
                 this.$message.warning('Please Log in');
                 return false;
             }
-            if(retailerProductSpuId){
-                this.$router.push({ name:'retail-products',query:{ productId:retailerProductSpuId }});
+            if(retailerProductSpuId){//有添加直接去列表
+                this.$router.push({ name:'sellingproducts',query:{ productId:retailerProductSpuId }});
                 return false;
+            }else{//没添加进行添加
+
+                this.addProduct(id)
             }
+        },
+        addProduct(id) {
+            //设计奇葩 添加需要商品详情！
+            sessionStorage.productId = id
+            this.getHttpGet({},'getProductDetail',true,'get').then(res => {
+                if(res.status==200){
+                    this.productInfo = res.data;
+                    this.formData.spuId =  res.data.id;
+                    this.formData.prodName =  res.data.prodName;
+                    this.formData.spuDes =  res.data.spuDes;
+                    this.formData.spuImgs =  res.data.spuMainImg;
+                    this.formData.retailerProductSkuList =  res.data.skuList.map(ele=>{
+                        return {
+                            skuCode:ele.skuCode,
+                            settlement:ele.settlement,
+                            freight:ele.freight,
+                        }
+                    })
+                    this.addProduct2()
+                }else{
+                    this.$message.error(res.error);
+                }
+                },error=>{
+                     this.$message.error('There is a problem with the network');
+            })
+        },
+        addProduct2(){
+              let postData = {
+                ...this.formData,
+                spuImgs:this.imgs.join(';')
+            }
+            this.getHttpPost(postData,'addSaleProduct',true,'Post').then(res => {
+                    this.loadingP = false
+                    if(res.status==200){
+                        this.$message({
+                            message: 'add success',
+                            type: 'success'
+                        });
+                        this.loadListData()
+                    }else{
+                        this.$message.error(res.msg);
+                    }
+                },
+                error => { 
+                    this.$message.error('There is a problem with the network');
+                    console.log(error); 
+            })
         },
         getPrice(){
 

@@ -18,14 +18,16 @@ export default{
         queryByClassificationId:  `/retailer-api/brands/queryByClassificationId`,//商品列表
         classificationTree:`/retailer-api/classifications/classificationTree`,//商品类别
         queryByClassificationId: `/retailer-api/brands/queryByClassificationId`,//获取品牌列表
-        querySaleProducts :'/retailer-api/retailers/querySaleProducts'//商品库的商品
+        querySaleProducts :'/retailer-api/retailers/querySaleProducts',//商品库的商品
+        queryRetailerProductSpuPage : '/retailer-api/retailers/queryRetailerProductSpuPage',// 分页查询销售商品列表
+        removeSaleProduct :'/retailer-api/retailers/removeSaleProduct',//删除商品
+        addSaleProduct : '/retailer-api/retailers/addSaleProduct',//增加商品
+        saleProductDetail : '/retailer-api/retailers/saleProductDetail',//商品详情
+        updateSaleProduct : '/retailer-api/retailers/updateSaleProduct',//更新商品
+        getProductDetail : `/retailer-api/products/spus/${sessionStorage.productId}`
 
 
 
-       
-
-       
-      
       }
       if(process.env.NODE_ENV === 'production'){
          dev  = config.interface.prod ;
